@@ -5,6 +5,7 @@
  * simple_print_buffer - prints buffer in hexa
  * @buffer: the address of memory to print
  * @size: the size of the memory to print
+ *
  * Return: Nothing.
  */
 void simple_print_buffer(char *buffer, unsigned int size)
@@ -30,6 +31,7 @@ void simple_print_buffer(char *buffer, unsigned int size)
 
 /**
  * main - check the code for Holberton School students.
+ *
  * Return: Always 0.
  */
 int main(void)
