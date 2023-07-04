@@ -1,4 +1,21 @@
 #include "main.h"
+/**
+ *_memset -   fills memory with a constant byte
+ *@s: pointer block of memory to fill
+ *@b: value to set
+ *@n: bytes of the memory
+ *Return: dest
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+unsigned int i;
+/Delacring FOR/
+for (i = 0; i < n; i++)
+{
+(s + i) = b; /*add 1 position s/
+} /END FOR/
+return (s);
+#include "holberton.h"
 #include <stdio.h>
 
 /**
@@ -41,6 +58,6 @@ int main(void)
     simple_print_buffer(buffer, 98);
     _memset(buffer, 0x01, 95);
     printf("-------------------------------------------------\n");
-    simple_print_buffer(buffer, 98);    
+    simple_print_buffer(buffer, 98);
     return (0);
 }
