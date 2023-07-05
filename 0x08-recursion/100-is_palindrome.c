@@ -1,29 +1,41 @@
-#include "main.h"
-/**
- * wildcmp - compares two strings and returns 1 if the strings
- * can be considered identical, otherwise return 0.
- * @s1: string to compare to
- * @s2: string with wild character
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int wildcmp(char *s1, char *s2)
+#include <stdio.h>
+
+int is_palindrome(char *s)
 {
-	if (*s1 == '\0' && *s2 == '\0')
-		return (1);
-	if (*s1 == *s2)
-		return (wildcmp(s1 + 1, s2 + 1));
+    char *end; /* Declare the variable 'end' at the beginning of the function */
 
-	if (*s2 == '*')
-	{
-		if (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2))
-			return (1);
-		if (*s2 == '*' && *(s2 + 1) != '\0' && *s1 == '\0')
-			return (0);
-		if (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2))
-			return (1);
-	}
+    if (s == NULL)
+        return 0;
 
-	return (0);
+    if (*s == '\0')
+        return 1;
+
+    end = s;
+    while (*(end + 1) != '\0')
+        end++;
+
+    while (s < end)
+    {
+        if (*s != *end)
+            return 0;
+        s++;
+        end--;
+    }
+
+    return 1;
+}
+
+int main(void)
+{
+    int r;
+
+    r = is_palindrome("level");
+    printf("%d\n", r);
+    r = is_palindrome("redder");
+    printf("%d\n", r);
+    r = is_palindrome("test");
+    printf("%d\n", r);
+    r = is_palindrome("step on no pets");
+    printf("%d\n", r);
+    return 0;
 }
